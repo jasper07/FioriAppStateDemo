@@ -1,0 +1,1 @@
+This app is a copy of the UI5 Worklist tutorial, it has been modified and includes additional filters for the table, when called in the Fiori Launchpad it will navigate away and on return the previous state of the app will be set 
