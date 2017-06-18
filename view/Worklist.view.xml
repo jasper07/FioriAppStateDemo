@@ -19,14 +19,14 @@
 						<filterBar:filterItems>
 							<filterBar:FilterItem name="A" label="Category">
 								<filterBar:control>
-									<MultiComboBox id="MB1" selectionFinish="onCategorySelectionFinish" items="{ path: '/Categories', sorter: { path: 'CategoryName' }                                            }">
+									<MultiComboBox id="categories" selectionFinish="onCategorySelectionFinish" items="{ path: '/Categories', sorter: { path: 'CategoryName' }                                            }">
 										<core:Item key="{CategoryID}" text="{CategoryName}"/>
 									</MultiComboBox>
 								</filterBar:control>
 							</filterBar:FilterItem>
 							<filterBar:FilterItem name="B" label="Supplier">
 								<filterBar:control>
-									<MultiComboBox id="MB2" selectionFinish="onSupplierSelectionFinish" items="{ path: '/Suppliers', sorter: { path: 'CompanyName' }                                                }">
+									<MultiComboBox id="suppliers" selectionFinish="onSupplierSelectionFinish" items="{ path: '/Suppliers', sorter: { path: 'CompanyName' }                                                }">
 										<core:Item key="{SupplierID}" text="{CompanyName}"/>
 									</MultiComboBox>
 								</filterBar:control>

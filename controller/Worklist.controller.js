@@ -61,7 +61,7 @@ sap.ui.define([
 
             this.oNavigationHandler = new NavigationHandler(this);
 
-            // on back navigation, the inner app state is returned in the resolved Promise
+            // on back navigation, the iprevious app state is returned in the resolved Promise
             this.oNavigationHandler.parseNavigation().done(this.onExternalNavigation.bind(this));
 
             // Create an object of filters
@@ -154,7 +154,7 @@ sap.ui.define([
             // save table selection to appState
             this._oAppState.selectedContextPaths = this.byId("table").getSelectedContextPaths();
 
-            this.oNavigationHandler.navigate("SalesOrder", "manage", { "SapOrderNumber": "sOrderNumber" }, { customData: this._oAppState }, undefined);
+            this.oNavigationHandler.navigate("Navigation", "sample", {}, { customData: this._oAppState }, undefined);
 
             // The source is the list item that got pressed
             // this._showObject(oEvent.getSource());
@@ -345,22 +345,29 @@ sap.ui.define([
         },
 
         /**
-         * 
+         * return the key for the item 
+         *  @param {sap.ui.core.Item} oItem basic item in list
+         * @return {String} key from the item
          */
-        _mapItemsToKeys: function(oItem) {
+        _getKeyFromItem: function(oItem) {
             return oItem.getKey();
         },
 
+        /**
+         * Event handler when category multi combo selection finishd
+         * @param {sap.ui.base.Event} oEvent the multicombo selectionChange event
+         */
         onCategorySelectionFinish: function(oEvent) {
-            this._oAppState.selectedCategories = oEvent.getParameter("selectedItems").map(this._mapItemsToKeys);
+            this._oAppState.selectedCategories = oEvent.getParameter("selectedItems").map(this._getKeyFromItem);
             this._applyFilters();
         },
 
         /**
-         * 
+         * Event handler when supplier multi combo selection finishd
+         * @param {sap.ui.base.Event} oEvent the multicombo selectionChange event
          */
         onSupplierSelectionFinish: function(oEvent) {
-            this._oAppState.selectedSuppliers = oEvent.getParameter("selectedItems").map(this._mapItemsToKeys);
+            this._oAppState.selectedSuppliers = oEvent.getParameter("selectedItems").map(this._getKeyFromItem);
             this._applyFilters();
         },
 
@@ -387,8 +394,8 @@ sap.ui.define([
                     this.byId("searchField").setValue(this._oAppState.searchText);
 
                     // set the previously selected multi combo tokens
-                    this.byId("MB1").setSelectedKeys(this._oAppState.selectedCategories);
-                    this.byId("MB2").setSelectedKeys(this._oAppState.selectedSuppliers);
+                    this.byId("catergories").setSelectedKeys(this._oAppState.selectedCategories);
+                    this.byId("suppliers").setSelectedKeys(this._oAppState.selectedSuppliers);
 
                     // select previously selected rows
                     this.byId("table").setSelectedContextPaths(this._oAppState.selectedContextPaths);

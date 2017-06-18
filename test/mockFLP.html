@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html>
-<!-- Copyright (c) 2015 SAP AG, All Rights Reserved -->
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,7 +40,13 @@
                     url: "../",
                     description: "WorkList App",
                     title: "Manage Products"
-                }
+                },
+                "Navigation-sample": {
+                    additionalInformation: "SAPUI5.Component=sap.ushell.demo.AppNavSample",
+                    applicationType: "URL",
+                    url: "https://sapui5.hana.ondemand.com/test-resources/sap/ushell/demoapps/AppNavSample",
+                    description: "Navigation Sample 1: demo for startup parameter passing and routing with event handlers"
+                },
             }
         };
     </script>
@@ -51,7 +56,6 @@
     <!-- Bootstrap the UI5 core library -->
     <script id="sap-ui-bootstrap" src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js" data-sap-ui-theme="sap_belize" data-sap-ui-libs="sap.m, sap.ushell" data-sap-ui-theme="sap_bluecrystal" data-sap-ui-compatVersion="edge" data-sap-ui-resourceroots='{"mycompany.myapp": "../", "sap.ui.demo.masterdetail.service": "./service/"}'
         data-sap-ui-frameOptions='allow'>
-        // NON-SECURE setting for testing environment
     </script>
 
     <script type="text/javascript">
@@ -69,7 +73,6 @@
         });
     </script>
 </head>
-<!-- UI Content -->
 
 <body class="sapUiBody" id="content">
 </body>
