@@ -394,7 +394,7 @@ sap.ui.define([
                     this.byId("searchField").setValue(this._oAppState.searchText);
 
                     // set the previously selected multi combo tokens
-                    this.byId("catergories").setSelectedKeys(this._oAppState.selectedCategories);
+                    this.byId("categories").setSelectedKeys(this._oAppState.selectedCategories);
                     this.byId("suppliers").setSelectedKeys(this._oAppState.selectedSuppliers);
 
                     // select previously selected rows
