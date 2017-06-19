@@ -59,10 +59,11 @@ sap.ui.define([
             });
             this.setModel(oViewModel, "worklistView");
 
+            // create an instance of the navigation handler
             this.oNavigationHandler = new NavigationHandler(this);
 
-            // on back navigation, the iprevious app state is returned in the resolved Promise
-            this.oNavigationHandler.parseNavigation().done(this.onExternalNavigation.bind(this));
+            // on back navigation, the previous app state is returned in the resolved Promise
+            this.oNavigationHandler.parseNavigation().done(this.onNavigationDone.bind(this));
 
             // Create an object of filters
             this._mFilters = {
@@ -378,7 +379,7 @@ sap.ui.define([
          * @param {Object} oURLParameters paramters passed in
          * @param {String} sNavType type of navigation
          */
-        onExternalNavigation: function(oAppData, oURLParameters, sNavType) {
+        onNavigationDone: function(oAppData, oURLParameters, sNavType) {
             switch (sNavType) {
                 case NavType.initial:
                     break;
